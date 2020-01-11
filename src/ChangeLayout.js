@@ -27,9 +27,12 @@ const options = [
 ];
 
 
-const data = Utils.mock(10)
-	.random(0.6)
+const data = Utils.mock(100)
+	.random(2.5)
 	.graphin();
+
+
+console.log(JSON.stringify(data));
 
 const ChangeLayout = () => {
 	const [layout, changeLayout] = React.useState({ name: "force", options: {} });
