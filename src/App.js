@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import G6 from '@antv/g6';
 import './App.css';
 
-import ChangeLayout from './ChangeLayout'
+import G6demo from './G6demo'
 
-export default ChangeLayout;
+export default G6demo;

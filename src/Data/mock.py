@@ -1,16 +1,32 @@
 #人、时间、地点、事件
 #关系
+import json
 
-from faker import Faker
-fake = Faker(locale='zh_CN')
+nodes = []
+edges = []
 
-print(fake.name())
-print(fake.company())
-print(fake.date(pattern="%Y-%m-%d", end_datetime=None))
-print(fake.email())
-print(fake.job())
-print(fake.phone_number())
-print(fake.profile(fields=None, sex=None))
+nodes.append({'id': "1", 'label': "ding", 'description': "balabala","class":"people"})
+nodes.append({'id': "2", 'label': "ct", 'description': "tttt","class":"people"})
+edges.append({'source':"1",'target':"2",'label':'friends','class':"dddd"})
+
+user_info = json.dumps({'edges': edges, 'nodes': nodes}, indent=4, ensure_ascii=False)
+
+with open('./data.json', 'w', encoding='utf-8') as json_file:
+    json.dump(user_info, json_file, ensure_ascii=False)
+    print("write json file success!")
+
+
+
+# from faker import Faker
+# fake = Faker(locale='zh_CN')
+
+# print(fake.name())
+# print(fake.company())
+# print(fake.date(pattern="%Y-%m-%d", end_datetime=None))
+# print(fake.email())
+# print(fake.job())
+# print(fake.phone_number())
+# print(fake.profile(fields=None, sex=None))
 
 '''
 fake.day_of_month()

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import G6 from '@antv/g6';
 import './App.css'
+import data from './Data/data.json'
+import { configConsumerProps } from 'antd/lib/config-provider';
 
 const Grid = require('@antv/g6/build/grid');
 const Minimap = require('@antv/g6/build/minimap');
@@ -112,10 +114,14 @@ export default function () {
         }
 
         const fetchDataAndDraw = async () => {
-            const response = await fetch('https://gw.alipayobjects.com/os/basement_prod/6cae02ab-4c29-44b2-b1fd-4005688febcb.json');
-            const remoteData = await response.json();
+            // const response = await fetch('https://gw.alipayobjects.com/os/basement_prod/6cae02ab-4c29-44b2-b1fd-4005688febcb.json');
+            // const remoteData = await response.json();
+
+            const remoteData = JSON.parse(data);
 
             const nodes = remoteData.nodes;
+            console.log(typeof(nodes[0]))
+
             nodes.forEach(node => {
                 if (!node.style) {
                     node.style = {};
@@ -138,6 +144,8 @@ export default function () {
                         break;
                     }
                 }
+                console.log(node);
+
             });
 
             const edges = remoteData.edges;
@@ -148,6 +156,7 @@ export default function () {
                 edge.style.lineWidth = edge.weight; // 边的粗细映射边数据中的 weight 属性数值
                 edge.style.opacity = 0.6;
                 edge.style.stroke = 'grey';
+                console.log(edge);
             });
 
             // 鼠标进入节点
@@ -186,7 +195,11 @@ export default function () {
 
 
             graph.data(remoteData);
+
+            console.log("fuck");
+
             graph.render();
+
         }
 
         fetchDataAndDraw();
