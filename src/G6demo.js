@@ -90,7 +90,7 @@ export default function () {
                         type: 'tooltip', // 提示框
                         formatText(model) {
                             // 提示框文本内容
-                            const text = 'label: ' + model.label + '<br/> class: ' + model.class;
+                            const text = 'description: ' + model.description ;
                             return text;
                         }
                     }, {
@@ -118,9 +118,7 @@ export default function () {
             // const remoteData = await response.json();
 
             const remoteData = JSON.parse(data);
-
             const nodes = remoteData.nodes;
-            console.log(typeof(nodes[0]))
 
             nodes.forEach(node => {
                 if (!node.style) {
