@@ -6,3 +6,6 @@ import './App.css';
 import G6demo from './G6demo'
 
 export default G6demo;
+
+// import ChangeLayout from './ChangeLayout';
+// export default ChangeLayout;

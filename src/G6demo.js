@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import G6 from '@antv/g6';
 import './App.css'
 import data from './Data/data.json'
-import { configConsumerProps } from 'antd/lib/config-provider';
 
 const Grid = require('@antv/g6/build/grid');
 const Minimap = require('@antv/g6/build/minimap');
@@ -32,7 +31,7 @@ export default function () {
                     type: 'force',         // 指定为力导向布局
                     preventOverlap: true,  // 防止节点重叠
                     // nodeSize: 30        // 节点大小，用于算法中防止节点重叠时的碰撞检测。由于已经在上一节的元素配置中设置了每个节点的 size 属性，则不需要在此设置 nodeSize。
-                    linkDistance: 100, // 指定边距离为100
+                    linkDistance: 200, // 指定边距离为100
                 },
                 // 节点在默认状态下的样式配置（style）和其他配置
                 defaultNode: {

@@ -5,7 +5,7 @@
 
 #人，地点，时间，(电话，公司，等等)
 nodesConfig = {'people':50,'location':10,'time':5,'other':40}
-linkRatio = 1.2
+linkRatio = 2
 
 ###init
 import json
